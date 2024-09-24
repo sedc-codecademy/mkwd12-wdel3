@@ -1,0 +1,33 @@
+GET http://localhost:3000/notes
+
+###
+
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+    "title": "TO BE DELETED",
+    "body": "Lorem Ipsum Dolor"
+}
+
+### 
+
+GET http://localhost:3000/notes/0d201d5a-b956-43cb-8513-8ca3ddf96b43
+
+###
+
+PUT http://localhost:3000/notes/0d201d5a-b956-43cb-8513-8ca3ddf96b43
+Content-Type: application/json
+
+{
+    "title": "UPDATE",
+    "body": "ALSO UPDATED"
+}
+
+### 
+
+DELETE http://localhost:3000/notes/52a7ffac-83d1-46a4-a8d8-4141a20f707a
+
+### 
+
+DELETE http://localhost:3000/notes/all
