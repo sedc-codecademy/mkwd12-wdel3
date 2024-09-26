@@ -1,0 +1,33 @@
+GET http://localhost:3000/notes
+
+###
+
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+    "title": "I am from typescript",
+    "body": "Lorem Ipsum Dolor"
+}
+
+### 
+
+GET http://localhost:3000/notes/eb3dabc2-451b-4ba6-bd42-c8f7ba928c40
+
+###
+
+PUT http://localhost:3000/notes/eb3dabc2-451b-4ba6-bd42-c8f7ba928c40
+Content-Type: application/json
+
+{
+    "title": "UPDATE",
+    "body": "ALSO UPDATED"
+}
+
+### 
+
+DELETE http://localhost:3000/notes/52a7ffac-83d1-46a4-a8d8-4141a20f707a
+
+### 
+
+DELETE http://localhost:3000/notes/all
