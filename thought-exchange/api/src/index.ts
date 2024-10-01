@@ -1,7 +1,9 @@
 import "dotenv/config";
+import "./const/firebase";
 import express from "express";
 import mongoose from "mongoose";
 import { globalRouter } from "./const/router.const";
+import { errorHandler } from "./middlewares/error.middleware";
 
 const PORT = (process.env.PORT || 3000) as number;
 const HOST = process.env.HOST || "0.0.0.0";
@@ -15,6 +17,8 @@ const app = express();
 app.use(express.json());
 
 app.use("/api", globalRouter);
+
+app.use(errorHandler);
 
 app.listen(PORT, HOST, async () => {
   console.log(`Server is up at port ${PORT}`);
