@@ -14,3 +14,10 @@
 
 - [Mongoose documentation](https://mongoosejs.com/docs/)
 - [MongoDB guide](https://www.mongodb.com/docs/manual/tutorial/getting-started/)
+
+### Class03
+
+- [Firebase](https://firebase.google.com/docs/build)
+- [What is "this" in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [Joi documentation](https://joi.dev/api/?v=17.9.1)
+- [Middlewares in Express.js](https://expressjs.com/en/guide/using-middleware.html)
