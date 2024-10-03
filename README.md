@@ -21,3 +21,8 @@
 - [What is "this" in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 - [Joi documentation](https://joi.dev/api/?v=17.9.1)
 - [Middlewares in Express.js](https://expressjs.com/en/guide/using-middleware.html)
+
+### Class04
+
+- [In-depth error handling in Express.js](https://reflectoring.io/express-error-handling/)
+- [CORS explained](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
