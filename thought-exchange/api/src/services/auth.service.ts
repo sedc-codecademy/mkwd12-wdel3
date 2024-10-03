@@ -46,6 +46,8 @@ export class AuthService {
 
       return userData;
     } catch (error) {
+      console.log(error);
+
       throw new Unauthorized("Invalid Credentials");
     }
   };

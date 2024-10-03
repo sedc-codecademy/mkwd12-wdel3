@@ -24,3 +24,18 @@ export const userSchema = joi.object({
   email: joi.string().email().required(),
   password: joi.string().min(8).max(30),
 });
+
+export const createPostSchema = joi.object({
+  title: joi.string().min(3).max(40).required(),
+  body: joi.string().min(3).max(240).required(),
+});
+
+export const updatePostSchema = joi.object({
+  title: joi.string().min(3).max(40).optional(),
+  body: joi.string().min(3).max(240).optional(),
+});
+
+export const createCommentSchema = joi.object({
+  body: joi.string().min(3).max(140).required(),
+  postId: joi.string().required(),
+});

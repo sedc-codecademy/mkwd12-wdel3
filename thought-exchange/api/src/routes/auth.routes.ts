@@ -4,7 +4,6 @@ import {
   entityValidator,
   userSchema,
 } from "../middlewares/entity-validator.middleware";
-import { errorHandler } from "../middlewares/error.middleware";
 
 export const authRouter = Router();
 
