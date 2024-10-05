@@ -26,3 +26,13 @@
 
 - [In-depth error handling in Express.js](https://reflectoring.io/express-error-handling/)
 - [CORS explained](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+
+## Angular / FE documentation
+
+### Class05
+
+**Get familiar with the Angular documentation, it's amazing!**
+
+- [Introduction to Angular](https://angular.dev/)
+- [Angular routing overview](https://angular.dev/guide/routing)
+- [Binding in Angular](https://angular.dev/guide/templates/binding)
