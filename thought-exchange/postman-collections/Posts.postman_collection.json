@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "1678e966-6195-41cf-9d2d-c6adf7b81ebe",
+		"name": "Posts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15639951"
+	},
+	"item": [
+		{
+			"name": "Get All Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Post by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "66fec1afc57df209ef465ba0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Posts by User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Edit post\",\r\n    \"body\": \"Lorem Ipsun EDIT THIS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Post",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "66fec1bec57df209ef465ba2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Post",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like Post",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/:id/like",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id",
+						"like"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "66fece68bed43ea50329cb47"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dislike Post",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/:id/dislike",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id",
+						"dislike"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "66fece68bed43ea50329cb47"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

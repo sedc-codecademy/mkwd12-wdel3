@@ -4,6 +4,8 @@ import express from "express";
 import mongoose from "mongoose";
 import { globalRouter } from "./const/router.const";
 import { errorHandler } from "./middlewares/error.middleware";
+import cors from "cors";
+import helmet from "helmet";
 
 const PORT = (process.env.PORT || 3000) as number;
 const HOST = process.env.HOST || "0.0.0.0";
@@ -14,6 +16,9 @@ const MONGO_URI = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_CLUSTER}/${DB_NAME}?
 
 const app = express();
 
+app.use(helmet());
+//Whitelist all the domains and ports for the frontend which will be our dev client: localhost:4200 and our prod client: unknown
+app.use(cors());
 app.use(express.json());
 
 app.use("/api", globalRouter);

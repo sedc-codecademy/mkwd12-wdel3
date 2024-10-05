@@ -17,4 +17,13 @@ export class CommentsController {
       next(error);
     }
   };
+  static getCommentsByUser: RequestHandler = async (req, res, next) => {
+    try {
+      const comments = await CommentsService.getCommentsByUser(req.userId);
+
+      res.json(comments);
+    } catch (error) {
+      next(error);
+    }
+  };
 }

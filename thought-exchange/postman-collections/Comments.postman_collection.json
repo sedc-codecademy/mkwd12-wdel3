@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "bc0e0159-6dd0-40c1-8401-d20cfa0286df",
+		"name": "Comments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15639951"
+	},
+	"item": [
+		{
+			"name": "Create Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"body\": \"Things are looking up\",\r\n    \"postId\": \"66fec1afc57df209ef465ba0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Comment Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/comments/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

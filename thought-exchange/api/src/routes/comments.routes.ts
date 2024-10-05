@@ -12,3 +12,4 @@ commentsRouter.post(
   entityValidator(createCommentSchema),
   CommentsController.createComment
 );
+commentsRouter.get("/user", CommentsController.getCommentsByUser);
