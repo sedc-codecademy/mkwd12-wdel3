@@ -1,1 +1,10 @@
-<p>posts-list works!</p>
+<section class="container">
+  <div class="container-heading">
+    <h2>Posts</h2>
+  </div>
+  <div class="posts-container">
+    @for(post of posts(); track post._id) {
+    <app-post-item [post]="post" (likeDislikeOutput)="onLikeDislike($event)" />
+    }
+  </div>
+</section>
