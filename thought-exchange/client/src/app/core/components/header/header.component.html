@@ -8,20 +8,37 @@
       routerLink="/"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{
-        exact: true
+        exact: true,
       }"
       class="nav-link"
     >
       Home
     </div>
-    <div routerLink="/login" routerLinkActive="active" class="nav-link">
-      Login
-    </div>
-    <div routerLink="/register" routerLinkActive="active" class="nav-link">
-      Register
-    </div>
-    <div routerLink="/posts" routerLinkActive="active" class="nav-link">
-      Posts
-    </div>
+    @if (currentUser()) {
+      <div routerLink="/posts" routerLinkActive="active" class="nav-link">
+        Posts
+      </div>
+      <div class="user-badge" (click)="toggleDropdown()">
+        {{ currentUser().username[0] | uppercase }}
+      </div>
+      @if (isDropdownOpen()) {
+        <div class="dropdown">
+          <div class="dropdown-item username">
+            <i class="fa fa-user"> </i>
+            {{ currentUser().username }}
+          </div>
+          <div class="dropdown-item">My Posts</div>
+          <div class="dropdown-item">My Comments</div>
+          <div class="dropdown-item" (click)="onLogoutClick()">Logout</div>
+        </div>
+      }
+    } @else {
+      <div routerLink="/login" routerLinkActive="active" class="nav-link">
+        Login
+      </div>
+      <div routerLink="/register" routerLinkActive="active" class="nav-link">
+        Register
+      </div>
+    }
   </nav>
 </header>

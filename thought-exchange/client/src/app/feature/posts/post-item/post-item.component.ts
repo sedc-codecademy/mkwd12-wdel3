@@ -1,16 +1,17 @@
 import { Component, input, output } from '@angular/core';
 import { LikeDislikeOutput, Post } from '../post.model';
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-post-item',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, NgClass],
   templateUrl: './post-item.component.html',
   styleUrl: './post-item.component.scss',
 })
 export class PostItemComponent {
   post = input.required<Post>();
+  isHoverShadow = input(true);
   likeDislikeOutput = output<LikeDislikeOutput>();
 
   onLikeDislikeClick(type: 'LIKE' | 'DISLIKE') {

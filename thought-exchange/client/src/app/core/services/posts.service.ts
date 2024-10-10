@@ -11,7 +11,7 @@ export class PostsService {
   getPosts() {
     setTimeout(() => {
       this.posts.set(postsMock);
-    }, 1500);
+    }, 200);
   }
 
   likePost(postId: string) {
