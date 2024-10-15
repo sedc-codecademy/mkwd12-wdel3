@@ -5,6 +5,7 @@ import { RegisterComponent } from './feature/auth/register/register.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { PostsListComponent } from './feature/posts/posts-list/posts-list.component';
 import { authGuard, loginGuard } from './core/guards';
+import { PostDetailsComponent } from './feature/posts/post-details/post-details.component';
 
 export const routes: Routes = [
   {
@@ -24,6 +25,11 @@ export const routes: Routes = [
   {
     path: 'posts',
     component: PostsListComponent,
+    canActivate: [() => authGuard()],
+  },
+  {
+    path: 'posts/:id',
+    component: PostDetailsComponent,
     canActivate: [() => authGuard()],
   },
   {

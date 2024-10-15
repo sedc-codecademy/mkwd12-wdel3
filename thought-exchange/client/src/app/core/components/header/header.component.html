@@ -22,7 +22,7 @@
         {{ currentUser().username[0] | uppercase }}
       </div>
       @if (isDropdownOpen()) {
-        <div class="dropdown">
+        <div class="dropdown" (click)="toggleDropdown()">
           <div class="dropdown-item username">
             <i class="fa fa-user"> </i>
             {{ currentUser().username }}

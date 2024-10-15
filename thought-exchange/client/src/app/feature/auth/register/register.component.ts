@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { consumerPollProducersForChange } from '@angular/core/primitives/signals';
 import {
   AbstractControl,
@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +17,8 @@ import {
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
+  private authService = inject(AuthService);
+
   registerForm = this.generateForm();
 
   generateForm() {
@@ -57,6 +60,12 @@ export class RegisterComponent {
     if (this.registerForm.invalid) return;
 
     //Call the auth service to register the user
-    console.log(this.registerForm.value);
+    const { email, password, username } = this.registerForm.value;
+
+    this.authService.registerUser({
+      email,
+      password,
+      username,
+    });
   }
 }

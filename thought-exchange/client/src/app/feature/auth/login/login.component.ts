@@ -29,5 +29,7 @@ export class LoginComponent {
 
     //Call the auth service to login the user
     this.authService.loginUser(email, password);
+
+    this.loginForm.reset();
   }
 }

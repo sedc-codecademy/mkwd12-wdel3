@@ -1,6 +1,6 @@
 <div class="post" [ngClass]="isHoverShadow() && 'post-hover'">
   <div class="post-heading">
-    <h3>{{ post().title }}</h3>
+    <h3 [routerLink]="'/posts/' + post()._id">{{ post().title }}</h3>
     <span class="likes-display">
       <span (click)="onLikeDislikeClick('LIKE')">
         <i class="fa-solid fa-thumbs-up"></i>

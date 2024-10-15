@@ -23,5 +23,6 @@ export class HeaderComponent {
 
   onLogoutClick() {
     this.authServce.logoutFromClient();
+    this.authServce.logoutFromServer();
   }
 }

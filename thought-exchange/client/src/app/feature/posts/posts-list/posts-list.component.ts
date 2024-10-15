@@ -1,6 +1,5 @@
-import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
-import { postsMock } from '../posts.mock';
-import { LikeDislikeOutput, Post } from '../post.model';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { LikeDislikeOutput } from '../post.model';
 import { PostItemComponent } from '../post-item/post-item.component';
 import { PostsService } from '../../../core/services/posts.service';
 
@@ -17,8 +16,6 @@ export class PostsListComponent implements OnInit, OnDestroy {
   posts = this.postsService.posts;
 
   ngOnInit() {
-    console.log('on init called');
-
     this.postsService.getPosts();
   }
 
@@ -28,8 +25,6 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
   onLikeDislike(value: LikeDislikeOutput) {
     console.log('From the parent component', value);
-
-    if (value.type === 'LIKE') this.postsService.likePost(value.id);
-    if (value.type === 'DISLIKE') this.postsService.likePost(value.id);
+    this.postsService.likeDislikePost(value);
   }
 }

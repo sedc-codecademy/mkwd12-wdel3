@@ -1,1 +1,15 @@
-<p>post-details works!</p>
+<section class="container">
+  <div class="container-heading">
+    <h2>Post Details</h2>
+  </div>
+  <div class="posts-container">
+    @if (postDetails()) {
+      <!-- Post component -->
+      <app-post-item [post]="postDetails()" />
+      <!-- Comment form component -->
+      <app-comment-form (submitOutput)="onCommentSubmit($event)" />
+      <!-- Comments list component -->
+      <app-comments-list [comments]="postDetails().comments" />
+    }
+  </div>
+</section>

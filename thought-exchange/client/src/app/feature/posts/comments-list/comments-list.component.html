@@ -1,1 +1,23 @@
-<p>comments-list works!</p>
+<div class="comment-container">
+  @if (comments().length) {
+    <h3>Comments</h3>
+    @for (comment of comments(); track comment._id) {
+      <div class="comment">
+        <p class="comment-body">
+          {{ comment.body }}
+        </p>
+        <p class="comment-author">
+          <span>
+            <i class="fa fa-user-circle"></i>
+            {{ comment.author.username }}
+          </span>
+          <span>
+            {{ comment.createdAt | date: "shortDate" }}
+          </span>
+        </p>
+      </div>
+    }
+  } @else {
+    <h3>No Comments Yet</h3>
+  }
+</div>
