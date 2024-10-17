@@ -1,1 +1,55 @@
-<p>post-form works!</p>
+@let ctrls = postForm.controls;
+<section class="container">
+  <div class="container-heading">
+    <h2>{{ editPostData() ? "Edit" : "Create" }} Post</h2>
+  </div>
+  <form
+    [formGroup]="postForm"
+    (ngSubmit)="onFormSubmit()"
+    class="form-container"
+  >
+    <div class="form-group">
+      <label for="post-title">Title</label>
+      <input
+        formControlName="title"
+        placeholder="enter post title"
+        type="text"
+        id="post-title"
+        class="form-control"
+      />
+      @if (ctrls.title.touched) {
+        @if (ctrls.title.errors?.required) {
+          <p class="form-error">Title is required</p>
+        }
+        @if (ctrls.title.errors?.minlength) {
+          <p class="form-error">Title must be at least 6 characters long</p>
+        }
+      }
+    </div>
+    <div class="form-group">
+      <label for="post-body">Content</label>
+      <textarea
+        formControlName="body"
+        rows="5"
+        type="text"
+        id="post-body"
+        class="form-control"
+        placeholder="enter post text"
+      ></textarea>
+      @if (ctrls.body.touched) {
+        @if (ctrls.body.errors?.required) {
+          <p class="form-error">Content is required</p>
+        }
+        @if (ctrls.body.errors?.minlength || ctrls.body.errors?.maxlength) {
+          <p class="form-error">Content must be between 6 and 240 characters</p>
+        }
+      }
+    </div>
+    <div class="controls">
+      <button type="button" (click)="goBack()">Back</button>
+      <button type="submit">
+        {{ editPostData() ? "Update" : "Add" }}
+      </button>
+    </div>
+  </form>
+</section>

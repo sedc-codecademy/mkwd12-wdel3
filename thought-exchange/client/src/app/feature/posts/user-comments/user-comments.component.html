@@ -1,1 +1,8 @@
-<p>user-comments works!</p>
+<section class="container">
+  <div class="container-heading">
+    <h2>{{ currentUser().username }}'s comments</h2>
+  </div>
+  <div class="posts-container">
+    <app-comments-list [comments]="userComments()" [showPostLink]="true" />
+  </div>
+</section>

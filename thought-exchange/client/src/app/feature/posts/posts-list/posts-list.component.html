@@ -1,12 +1,21 @@
 <section class="container">
   <div class="container-heading">
-    <h2>Posts</h2>
+    @if (isUserPosts()) {
+      <h2>{{ currentUser().username }}'s posts</h2>
+    } @else {
+      <h2>Posts</h2>
+    }
   </div>
   <div class="posts-container">
     @for (post of posts(); track post._id) {
       <app-post-item
         [post]="post"
+        [canEdit]="isUserPosts()"
+        [canLikeDislike]="
+          isUserPosts() ? false : post.author._id !== currentUser()._id
+        "
         (likeDislikeOutput)="onLikeDislike($event)"
+        (postAction)="onPostAction($event)"
       />
     }
   </div>

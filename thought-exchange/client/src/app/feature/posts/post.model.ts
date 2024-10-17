@@ -52,3 +52,13 @@ export interface CreateCommentReq {
   postId: string;
   body: string;
 }
+
+export interface CreateEditPostReq {
+  title: string;
+  body: string;
+}
+
+export interface PostActionOutput {
+  action: 'EDIT' | 'DELETE';
+  post: Post;
+}

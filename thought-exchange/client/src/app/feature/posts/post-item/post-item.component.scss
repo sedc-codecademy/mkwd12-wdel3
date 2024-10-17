@@ -10,6 +10,7 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
   &-heading {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     color: var(--light-blue);
@@ -112,7 +113,6 @@
 }
 
 .post-hover:hover {
-  cursor: pointer;
   &:hover {
     box-shadow:
       0 10px 20px rgba(0, 0, 0, 0.25),

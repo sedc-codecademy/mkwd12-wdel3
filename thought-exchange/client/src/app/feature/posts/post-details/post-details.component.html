@@ -5,7 +5,12 @@
   <div class="posts-container">
     @if (postDetails()) {
       <!-- Post component -->
-      <app-post-item [post]="postDetails()" />
+      <app-post-item
+        [post]="postDetails()"
+        [canLikeDislike]="postDetails().author._id !== currentUser()._id"
+        (likeDislikeOutput)="onLikeDislike($event)"
+        [isHoverShadow]="false"
+      />
       <!-- Comment form component -->
       <app-comment-form (submitOutput)="onCommentSubmit($event)" />
       <!-- Comments list component -->

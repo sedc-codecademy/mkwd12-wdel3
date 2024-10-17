@@ -15,23 +15,42 @@
       Home
     </div>
     @if (currentUser()) {
-      <div routerLink="/posts" routerLinkActive="active" class="nav-link">
+      <div
+        routerLink="/posts"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{
+          exact: true,
+        }"
+        class="nav-link"
+      >
         Posts
       </div>
-      <div class="user-badge" (click)="toggleDropdown()">
-        {{ currentUser().username[0] | uppercase }}
+      <div
+        routerLink="/posts/create"
+        routerLinkActive="active"
+        class="nav-link"
+      >
+        Create Post
       </div>
-      @if (isDropdownOpen()) {
-        <div class="dropdown" (click)="toggleDropdown()">
-          <div class="dropdown-item username">
-            <i class="fa fa-user"> </i>
-            {{ currentUser().username }}
-          </div>
-          <div class="dropdown-item">My Posts</div>
-          <div class="dropdown-item">My Comments</div>
-          <div class="dropdown-item" (click)="onLogoutClick()">Logout</div>
+
+      <div #dropdown>
+        <div class="user-badge" (click)="toggleDropdown()">
+          {{ currentUser().username[0] | uppercase }}
         </div>
-      }
+        @if (isDropdownOpen()) {
+          <div class="dropdown" (click)="toggleDropdown()">
+            <div class="dropdown-item username">
+              <i class="fa fa-user"> </i>
+              {{ currentUser().username }}
+            </div>
+            <div class="dropdown-item" routerLink="/user/posts">My Posts</div>
+            <div class="dropdown-item" routerLink="/user/comments">
+              My Comments
+            </div>
+            <div class="dropdown-item" (click)="onLogoutClick()">Logout</div>
+          </div>
+        }
+      </div>
     } @else {
       <div routerLink="/login" routerLinkActive="active" class="nav-link">
         Login

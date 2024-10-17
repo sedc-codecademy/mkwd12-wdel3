@@ -9,7 +9,7 @@ export class AuthController {
 
       await AuthService.registerUser(userData);
 
-      res.sendStatus(201);
+      res.status(201).json({ msg: "User registered successfully!" });
     } catch (error) {
       next(error);
     }

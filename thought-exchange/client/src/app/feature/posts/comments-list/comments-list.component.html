@@ -7,6 +7,13 @@
           {{ comment.body }}
         </p>
         <p class="comment-author">
+          @if (showPostLink()) {
+            <span class="post-link" [routerLink]="'/posts/' + comment.post">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Link to
+              post
+            </span>
+          }
+
           <span>
             <i class="fa fa-user-circle"></i>
             {{ comment.author.username }}

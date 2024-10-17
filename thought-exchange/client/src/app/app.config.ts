@@ -5,13 +5,13 @@ import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
-import { spinnerInterceptor } from './core/interceptors';
+import { authInterceptor, spinnerInterceptor } from './core/interceptors';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([spinnerInterceptor])),
+    provideHttpClient(withInterceptors([authInterceptor, spinnerInterceptor])),
     provideAnimations(),
     provideToastr({
       positionClass: 'toast-top-center',

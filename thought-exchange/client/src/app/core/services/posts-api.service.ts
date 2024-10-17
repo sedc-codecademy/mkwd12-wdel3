@@ -3,8 +3,10 @@ import { inject, Injectable } from '@angular/core';
 import { API_URL } from '../core.constants';
 import {
   CreateCommentReq,
+  CreateEditPostReq,
   LikeDislikeOutput,
   Post,
+  PostComment,
   PostDetails,
 } from '../../feature/posts/post.model';
 
@@ -20,6 +22,22 @@ export class PostsApiService {
 
   fetchPostById(postId: string) {
     return this.http.get<PostDetails>(`${API_URL}/posts/${postId}`);
+  }
+
+  createPost(reqBody: CreateEditPostReq) {
+    return this.http.post<Post>(`${API_URL}/posts`, reqBody);
+  }
+
+  updatePost(postId: string, reqBody: CreateEditPostReq) {
+    return this.http.patch(`${API_URL}/posts/${postId}`, reqBody);
+  }
+
+  fetchPostsByUser() {
+    return this.http.get<Post[]>(`${API_URL}/posts/user`);
+  }
+
+  fetchCommentsByUser() {
+    return this.http.get<PostComment[]>(`${API_URL}/comments/user`);
   }
 
   postComment(reqBody: CreateCommentReq) {

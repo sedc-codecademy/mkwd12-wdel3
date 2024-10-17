@@ -6,6 +6,8 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
 import { PostsListComponent } from './feature/posts/posts-list/posts-list.component';
 import { authGuard, loginGuard } from './core/guards';
 import { PostDetailsComponent } from './feature/posts/post-details/post-details.component';
+import { PostFormComponent } from './feature/posts/post-form/post-form.component';
+import { UserCommentsComponent } from './feature/posts/user-comments/user-comments.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +27,26 @@ export const routes: Routes = [
   {
     path: 'posts',
     component: PostsListComponent,
+    canActivate: [() => authGuard()],
+  },
+  {
+    path: 'user/posts',
+    component: PostsListComponent,
+    canActivate: [() => authGuard()],
+  },
+  {
+    path: 'user/comments',
+    component: UserCommentsComponent,
+    canActivate: [() => authGuard()],
+  },
+  {
+    path: 'posts/create',
+    component: PostFormComponent,
+    canActivate: [() => authGuard()],
+  },
+  {
+    path: 'posts/edit',
+    component: PostFormComponent,
     canActivate: [() => authGuard()],
   },
   {
